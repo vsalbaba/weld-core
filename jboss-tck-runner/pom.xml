@@ -511,16 +511,7 @@
                         <configuration>
                             <excludedGroups>${excluded.groups}</excludedGroups>
 
-                            <argLine>
-                                --add-exports=java.desktop/sun.awt=ALL-UNNAMED
-                                --add-opens=java.base/java.io=ALL-UNNAMED
-                                --add-opens=java.base/java.lang=ALL-UNNAMED
-                                --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
-                                --add-opens=java.base/java.security=ALL-UNNAMED
-                                --add-opens=java.base/java.util=ALL-UNNAMED
-                                --add-opens=java.management/javax.management=ALL-UNNAMED
-                                --add-opens=java.naming/javax.naming=ALL-UNNAMED
-                            </argLine>
+                            <argLine>${server.jvm.jpms.args} -Dlauncher.skip.jpms.properties=true</argLine>
                             <properties>
                                 <property>
                                     <!-- Note a 7.4.0 issue results in NPEs and useless output if you go higher than 1 here -->
@@ -543,7 +534,7 @@
                                 <gc.args />
                                 <!-- This property propagates to the javaVmArguments in arquillian.xml -->
                                 <additional.vm.args>
-                                    ${surefire.plugin.jdk17.args}
+                                    ${server.jvm.jpms.args}
                                 </additional.vm.args>
                             </systemProperties>
                             <suiteXmlFiles>
