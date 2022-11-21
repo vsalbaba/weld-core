@@ -12,7 +12,7 @@
         <configuration>
             <!-- This config file includes embedded JMS broker and is copied into WFLY dir from ${JBOSS_HOME}/standalone/configuration -->
             <property name="serverConfig">standalone-full.xml</property>
-            <property name="javaVmArguments">-Xms128m -Xmx1g -ea -DcdiTckExcludeDummy=true ${gc.args} ${additional.vm.args} ${jacoco.agent}</property>
+            <property name="javaVmArguments">-Xms128m -Xmx1g -ea -DcdiTckExcludeDummy=true ${gc.args} ${additional.vm.args} ${jacoco.agent} ${server.jvm.jpms.args}</property>
             <property name="outputToConsole">false</property>
             <property name="allowConnectingToRunningServer">true</property>
             <property name="startupTimeoutInSeconds">${server.startup.timeout:60}</property>

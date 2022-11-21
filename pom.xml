@@ -43,7 +43,8 @@
         <jax.artifacts.version>4.0.0</jax.artifacts.version>
 
         <!-- A property which is handed over to WFLY container through Arquillian, allows to pass on JVM options -->
-        <additional.vm.args />
+        <additional.vm.args>--add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED</additional.vm.args>
+
         <!-- A property which is handed over to WFLY container through Arquillian, allows to configure server-specific options -->
         <additional.jboss.args />
 
@@ -91,6 +92,7 @@
         <weld.api.version>5.0.SP2</weld.api.version>
         <weld.logging.tools.version>1.0.3.Final</weld.logging.tools.version>
         <wildfly.arquillian.version>5.0.0.Alpha6</wildfly.arquillian.version>
+        <server.jvm.jpms.args>--add-exports=java.desktop/sun.awt=ALL-UNNAMED --add-exports=java.naming/com.sun.jndi.ldap=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.base/java.lang.reflect=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.security=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.management/javax.management=ALL-UNNAMED --add-opens=java.naming/javax.naming=ALL-UNNAMED</server.jvm.jpms.args>
     </properties>
 
     <modules>
@@ -731,6 +733,7 @@
                 <jdk>[17,)</jdk>
             </activation>
             <properties>
+                <!-- This property propagates to the javaVmArguments in arquillian.xml -->
                 <surefire.plugin.jdk17.args>
                     --add-exports=java.desktop/sun.awt=ALL-UNNAMED
                     --add-opens=java.base/java.io=ALL-UNNAMED
