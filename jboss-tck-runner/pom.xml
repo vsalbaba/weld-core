@@ -169,7 +169,7 @@
                 <version>${surefire.version}</version>
                 <configuration>
                     <!-- http://bugs.java.com/bugdatabase/view_bug.do?bug_id=4425695 -->
-                    <argLine>-Xmx768m -Dsun.zip.disableMemoryMapping=true </argLine>
+                    <argLine>-Xmx768m -Dsun.zip.disableMemoryMapping=true</argLine>
                     <forkMode>once</forkMode>
                     <properties>
                         <property>
